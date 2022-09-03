@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { fetchData, dataObject } from "./hooks/fetchData"
 import Graph from "./components/Graph"
 import refresh from "./assets/refresh.png"
+import github from "./assets/github.png"
 
 const App: React.FC = () => {
   const [data, setData] = useState<dataObject[] | null>(null)
@@ -32,6 +33,7 @@ const App: React.FC = () => {
             }
           </p>
           <img src={refresh} onClick={refreshWindow} className="ml-2 w-5 h-5 cursor-pointer" alt="refresh button" />
+          <img onClick={() => window.open("https://github.com/Tcumulus/weather_data_dashboard", "_blank")} src={github} alt="github" className="ml-8 mr-4 w-6 h-6 opacity-60 hover:opacity-100 cursor-pointer" />
         </div>
       </div>
 
