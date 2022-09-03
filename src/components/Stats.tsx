@@ -1,5 +1,5 @@
 import React from "react"
-import { average, min, max, standardDeviation } from 'simple-statistics'
+import { average, min, max, standardDeviation } from "simple-statistics"
 
 interface Props {
   parameter: number[],

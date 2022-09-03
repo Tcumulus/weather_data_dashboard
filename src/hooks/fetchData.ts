@@ -51,6 +51,5 @@ export const fetchData = async(): Promise<dataObject[]> => {
     }
     stationData.push(data)
   }
-  console.log(stationData)
   return stationData
 }

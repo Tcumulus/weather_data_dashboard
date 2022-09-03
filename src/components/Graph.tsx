@@ -1,8 +1,8 @@
 import React, { useState } from "react"
-import { sampleCorrelation } from 'simple-statistics'
-import { Scatter } from 'react-chartjs-2'
-import { Chart, registerables } from 'chart.js'
-import chartTrendline from 'chartjs-plugin-trendline';
+import { sampleCorrelation } from "simple-statistics"
+import { Scatter } from "react-chartjs-2"
+import { Chart, registerables } from "chart.js"
+import chartTrendline from "chartjs-plugin-trendline"
 import { dataObject } from "../hooks/fetchData"
 import Stats from "./Stats"
 
@@ -51,7 +51,7 @@ const Graph: React.FC<Props> = ({ data }) => {
     labels: id,
     datasets: [
       {
-        label: 'Humidity',
+        label: "Humidity",
         data: humidityHeight,
         backgroundColor: "rgba(0, 0, 0, 1)",
         trendlineLinear: {
@@ -68,7 +68,7 @@ const Graph: React.FC<Props> = ({ data }) => {
     labels: id,
     datasets: [
       {
-        label: 'Wind Speed',
+        label: "Wind Speed",
         data: windHeight,
         backgroundColor: "rgba(0, 0, 0, 1)",
         trendlineLinear: {
