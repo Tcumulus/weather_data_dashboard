@@ -29,7 +29,7 @@ const App: React.FC = () => {
         <div className="flex flex-row items-center">
           <p className="text-xl">
             {lastDate ?
-              "Last update: " + lastDate?.toLocaleTimeString() : "Loading..."
+              "Last update: " + lastDate.toLocaleTimeString() : "Loading..."
             }
           </p>
           <img src={refresh} onClick={refreshWindow} className="ml-2 w-5 h-5 cursor-pointer" alt="refresh button" />
@@ -39,7 +39,7 @@ const App: React.FC = () => {
 
       {data ?
         <Graph data={data} />
-        : <p>Loading...</p>
+        : null
       }
       <div className="flex flex-row flex-grow w-full justify-end">
         {data ?
