@@ -3,6 +3,7 @@ import { fetchData, dataObject } from "./hooks/fetchData"
 import Graph from "./components/Graph"
 import refresh from "./assets/refresh.png"
 import github from "./assets/github.png"
+import cloud from "./assets/cloud.png"
 
 const App: React.FC = () => {
   const [data, setData] = useState<dataObject[] | null>(null)
@@ -38,14 +39,17 @@ const App: React.FC = () => {
   return (
     <div>
       <div className="flex flex-row justify-between items-center m-2 p-4 border-2 rounded-xl">
-        <h1 className="text-3xl">Weather Data</h1>
+        <div className="flex flex-row items-center">
+          <h1 className="text-3xl text-gray-700">Weather Data</h1>
+          <img src={cloud} className="ml-4 w-12 h-12 opacity-60" />
+        </div>
         <div className="flex flex-row items-center">
           <p className="text-xl">
             {lastDate ?
               "Last update: " + lastDate.toLocaleTimeString() : "Loading..."
             }
           </p>
-          <img src={refresh} onClick={refreshWindow} className="ml-2 w-5 h-5 cursor-pointer opacity-60" alt="refresh button" />
+          <img src={refresh} onClick={refreshWindow} className="ml-2 w-5 h-5 cursor-pointer opacity-60 hover:opacity-100" alt="refresh button" />
           <img onClick={() => window.open("https://github.com/Tcumulus/weather_data_dashboard", "_blank")} src={github} alt="github" className="ml-8 mr-4 w-6 h-6 opacity-60 hover:opacity-100 cursor-pointer" />
         </div>
       </div>
