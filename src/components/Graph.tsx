@@ -120,8 +120,8 @@ const Graph: React.FC<Props> = ({ data }) => {
         <p className="px-4 py-2 mt-2 border rounded-lg">{checkCorrelation(corrs[1])}</p>
       </div>
       <div className="flex flex-col items-center w-1/3 mx-2 px-4 py-2 border-2 rounded-xl">
-        <p className="text-xl m-1 mb-4">Wind Gust Speed (m/s)</p>
-        <Stats parameter={wind} unit={"m/s"} />
+        <p className="text-xl m-1 mb-4">Wind Gust Speed (km/h)</p>
+        <Stats parameter={wind} unit={"km/h"} />
         <Scatter data={windGraphData} options={options} />
         <p className="px-4 py-2 mt-2 border rounded-lg">{checkCorrelation(corrs[2])}</p>
       </div>
