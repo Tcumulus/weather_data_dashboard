@@ -61,7 +61,7 @@ const App: React.FC = () => {
 
       {data ?
         <div className="flex flex-row flex-grow w-full justify-between">
-          <a onClick={downloadFile} className="ml-4 mt-1 text-sm text-gray-500 cursor-pointer">Download Data</a>
+          <a onClick={downloadFile} className="ml-4 mt-1 text-sm text-gray-500 cursor-pointer underline">Download Data</a>
           <p className="mr-4 mt-1 text-sm text-gray-500">{data.length + " weather stations included"}</p>
         </div>
         : null
