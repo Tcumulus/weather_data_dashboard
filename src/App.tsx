@@ -22,6 +22,19 @@ const App: React.FC = () => {
     window.location.reload()
   }
 
+  const downloadFile = () => {
+    if (data) {
+      const file = new Blob([JSON.stringify(data)], { type: "application/json" })
+      const url = window.URL.createObjectURL(file)
+      const link = document.createElement('a')
+      link.href = url
+      link.setAttribute("download", "data.json")
+      document.body.appendChild(link)
+      link.click()
+      link.parentNode?.removeChild(link)
+    }
+  }
+
   return (
     <div>
       <div className="flex flex-row justify-between items-center m-2 p-4 border-2 rounded-xl">
@@ -41,12 +54,16 @@ const App: React.FC = () => {
         <Graph data={data} />
         : null
       }
-      <div className="flex flex-row flex-grow w-full justify-end">
-        {data ?
-          <p className="mr-4 mt-1 text-sm">{data.length + " weather stations included"}</p>
-          : null
-        }
-      </div>
+
+      {data ?
+        <div className="flex flex-row flex-grow w-full justify-between">
+          <a onClick={downloadFile} className="ml-4 mt-1 text-sm text-gray-500 cursor-pointer">Download Data</a>
+          <p className="mr-4 mt-1 text-sm text-gray-500">{data.length + " weather stations included"}</p>
+        </div>
+        : null
+      }
+
+
     </div>
   )
 }
