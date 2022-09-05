@@ -34,21 +34,23 @@ export interface dataObject {
 }
 
 export const fetchData = async(): Promise<dataObject[]> => {
-  const stationJson: any[] = await Promise.all(stations.map(async (station) => {
-    const response = await fetch(`https://api.weather.com/v2/pws/observations/current?stationId=${station.id}&format=json&units=m&apiKey=${process.env.REACT_APP_API_KEY}&numericPrecision=decimal`)
-    return response.json()
+  const stationPromise: any[] = await Promise.all(stations.map(async (station) => {
+    return await fetch(`https://api.weather.com/v2/pws/observations/current?stationId=${station.id}&format=json&units=m&apiKey=${process.env.REACT_APP_API_KEY}&numericPrecision=decimal`)
   }))
-  
+
   const stationData: dataObject[] = []
-  for (let i=0; i<stationJson.length; i++) {
-    const data: dataObject = {
-      id: stations[i].id,
-      height: stations[i].height,
-      temperature: stationJson[i].observations[0].metric.temp,
-      humidity: stationJson[i].observations[0].humidity,
-      wind: stationJson[i].observations[0].metric.windGust
+  for (let i=0; i<stationPromise.length; i++) {
+    if (stationPromise[i].status === 200) {
+      const stationJson = await stationPromise[i].json()
+      const data: dataObject = {
+        id: stations[i].id,
+        height: stations[i].height,
+        temperature: stationJson.observations[0].metric.temp,
+        humidity: stationJson.observations[0].humidity,
+        wind: stationJson.observations[0].metric.windGust
+      }
+      stationData.push(data)
     }
-    stationData.push(data)
   }
   return stationData
 }
