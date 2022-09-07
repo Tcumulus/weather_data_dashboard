@@ -49,7 +49,9 @@ export const fetchData = async(): Promise<dataObject[]> => {
         humidity: stationJson.observations[0].humidity,
         wind: stationJson.observations[0].metric.windGust
       }
-      stationData.push(data)
+      if (data.temperature !== null || data.humidity !== null || data.wind !== null) {
+        stationData.push(data)
+      } 
     }
   }
   return stationData
