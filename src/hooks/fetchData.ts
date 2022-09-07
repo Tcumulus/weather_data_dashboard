@@ -19,7 +19,6 @@ const stations = [
   { id: "IOVERI6", height: 83 },
   { id: "IOVERI2", height: 96 },
   { id: "ILEUVE22", height: 64 },
-  { id: "ILEUVEN18", height: 35 },
   { id: "ILEUVE47", height: 47 },
   { id: "IBERTEM5", height: 82 },
   { id: "ITERVURE22", height: 100 },
