@@ -45,7 +45,7 @@ const App: React.FC = () => {
         </div>
         <div className="flex flex-row items-center">
           <p className="text-xl">
-            {lastDate ?
+            { lastDate ?
               "Last update: " + lastDate.toLocaleTimeString() : "Loading..."
             }
           </p>
@@ -54,12 +54,12 @@ const App: React.FC = () => {
         </div>
       </div>
 
-      {data ?
+      { data ?
         <Graph data={data} />
         : null
       }
 
-      {data ?
+      { data ?
         <div className="flex flex-row flex-grow w-full justify-between">
           <a onClick={downloadFile} className="ml-4 mt-1 text-sm text-gray-500 cursor-pointer underline">Download Data</a>
           <p className="mr-4 mt-1 text-sm text-gray-500">{data.length + " weather stations included"}</p>

@@ -102,7 +102,7 @@ const Graph: React.FC<Props> = ({ data }) => {
     else if (Math.abs(correlation) < 0.4) { return "Low correlation: " + Math.round(correlation * 100) / 100 }
     else if (Math.abs(correlation) < 0.6) { return "Moderate correlation: " + Math.round(correlation * 100) / 100 }
     else if (Math.abs(correlation) < 0.8) { return "High correlation: " + Math.round(correlation * 100) / 100 }
-    else { return "Very high correlation: " + correlation }
+    else { return "Very high correlation: " + Math.round(correlation * 100) / 100 }
   }
 
   return (
