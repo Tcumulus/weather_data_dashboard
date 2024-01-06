@@ -8,7 +8,6 @@ const stations = [
   { id: "ITERVU1", height: 79 },
   { id: "IBERTE5", height: 44 },
   { id: "IBIERB6", height: 50 },
-  { id: "IBEAUVEC19", height: 84 },
   { id: "ILUBBE7", height: 89 },
   { id: "IINCOU4", height: 113 },
   { id: "IJODOI8", height: 119 },
